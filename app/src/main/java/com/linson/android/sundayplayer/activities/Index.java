@@ -16,28 +16,21 @@ import app.lslibrary.androidHelper.LSLog;
 
 public class Index extends BaseFragment
 {
-    public static Fragment GetMyInstance(FragmentVariable vv)
+    public static Fragment getFragmentInstance(BunderVariable var)
     {
         Fragment fragment=new Index();
         Bundle bundle=new Bundle();
-        bundle.putSerializable(VARIABLENAME, vv);
+        bundle.putSerializable(BaseFragment.BunderVariableNAME,var );
         fragment.setArguments(bundle);
-        return  fragment;
+        return fragment;
     }
-
-    public static class FragmentVariable implements Serializable
-    {
-        int myid=-1;
-    }
-
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        Bundle mybunder= getArguments();
-        FragmentVariable variables=(FragmentVariable) mybunder.get(VARIABLENAME);
-        LSLog.Log_INFO("vv:"+variables.myid);
+        BunderVariable var=(BunderVariable) getArguments().getSerializable(BaseFragment.BunderVariableNAME);
+        LSLog.Log_INFO("var1:"+var.intVar1);
     }
 
 

@@ -2,6 +2,7 @@ package com.linson.android.sundayplayer.activities;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -38,8 +39,8 @@ public class MasterPage extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_master_page);
 
-        Index.FragmentVariable variable=new Index.FragmentVariable();
-        variable.myid=3;
-        appHelper.AddCategoryFragment(getSupportFragmentManager(), Index.GetMyInstance(variable));
+        BaseFragment.BunderVariable variable=new BaseFragment.BunderVariable();
+        variable.intVar1=5;
+        appHelper.AddCategoryFragment(getSupportFragmentManager(), Index.getFragmentInstance(variable));
     }
 }
